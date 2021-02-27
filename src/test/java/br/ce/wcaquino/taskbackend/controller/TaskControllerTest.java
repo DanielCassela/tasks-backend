@@ -2,6 +2,7 @@ package br.ce.wcaquino.taskbackend.controller;
 
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Before;
 import org.mockito.Mock;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
@@ -17,7 +18,6 @@ public class TaskControllerTest {
 
 	@InjectMocks
 	private	TaskController controller;
-
 
 	@Before
 	public void setup() {
@@ -40,7 +40,7 @@ public class TaskControllerTest {
 	public void naoDeveSalvarTarefaSemData() {
 
 		Task todo = new Task();
-		todo.setDescription("Descrição");
+		todo.setTask("Descrição");
 		try {
 			controller.save(todo);
 			Assert.fail("Não deveria chegar aqui");
@@ -53,7 +53,7 @@ public class TaskControllerTest {
 	public void naoDeveSalvarTarefaComDataPassada() {
 
 		Task todo = new Task();
-		todo.setDescription("Descrição");
+		todo.setTask("Descrição");
 		todo.setDueDate(LocalDate.of(2010, 01, 01));
 		try {
 			controller.save(todo);
@@ -66,7 +66,7 @@ public class TaskControllerTest {
 	@Test
 	public void deveSalvarTarefaComSucesso() throws ValidationException {
 		Task todo = new Task();
-		todo.setDescription("Descrição");
+		todo.setTask("Descrição");
 		todo.setDueDate(LocalDate.now());
 		controller.save(todo);
 		Mockito.verify(taskRepo).save(todo);
