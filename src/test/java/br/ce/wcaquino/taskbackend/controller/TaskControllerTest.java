@@ -1,6 +1,6 @@
 package br.ce.wcaquino.taskbackend.controller;
 
-import org.junit.test;
+import org.junit.Test;
 import org.junit.Assert;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
