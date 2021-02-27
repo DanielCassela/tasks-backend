@@ -3,6 +3,7 @@ package br.ce.wcaquino.taskbackend.controller;
 import org.junit.Test;
 import org.junit.Assert;
 import org.junit.Before;
+import org.mockito.Mockito;
 import org.mockito.Mock;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
@@ -69,6 +70,6 @@ public class TaskControllerTest {
 		todo.setTask("Descrição");
 		todo.setDueDate(LocalDate.now());
 		controller.save(todo);
-		Mockito.verify(taskRepo).save(todo);
+		mockito.verify(taskRepo).save(todo);
 	}
 }
