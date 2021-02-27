@@ -70,6 +70,6 @@ public class TaskControllerTest {
 		todo.setTask("Descrição");
 		todo.setDueDate(LocalDate.now());
 		controller.save(todo);
-		mockito.verify(taskRepo).save(todo);
+		Mockito.verify(taskRepo).save(todo);
 	}
 }
